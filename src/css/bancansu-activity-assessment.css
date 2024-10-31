@@ -1,0 +1,67 @@
+html {
+    font-size: 62.5%;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    /* box-sizing: content-box; */
+}
+
+.content {
+    margin-top: 2rem;
+    max-width: 90rem;
+    background-color: var(--white-color);
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.8rem;
+}
+
+/* activity information */
+.activity {
+    padding: 1rem;
+}
+.information {
+    background-color: var(--tb-white);
+    margin: 2rem;
+    border-radius: 0.8rem;
+}
+
+.activity-elements {
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+.activity-elements.title {
+    font-size: 2rem;
+}
+
+/* Table */
+.evaluation {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: var(--white-color);
+    font-size: 1.6rem;
+    border-radius: 0.8rem;
+}
+
+/* css table */
+
+th {
+    font-size: 2rem;
+}
+
+td {
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+th,
+td {
+    padding: 1rem;
+}
+
+table tr td:nth-child(9) a {
+    text-decoration: none;
+    color: var(--login-a);
+}

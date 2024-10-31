@@ -1,0 +1,185 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+}
+
+.title {
+    max-width: 47rem;
+    margin: auto;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+}
+
+.title h3 {
+    font-weight: bold;
+}
+
+.title p {
+    font-size: 16px;
+    color: var(--black-color);
+}
+
+.title p.msg {
+    color: initial;
+    text-align: initial;
+    font-weight: bold;
+    margin: 8rem 0 0 0;
+    color: var(--black-color);
+}
+
+.otp-input-fields {
+    margin: auto;
+    background-color: var(--white-color);
+    box-shadow: 0px 0px 8px 0px #020250 44;
+    max-width: 50rem;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.otp-input-fields input {
+    height: 7rem;
+    width: 7rem;
+    background-color: transparent;
+    border-radius: 7px 7px 0px 0px;
+    border: 1px solid var(--white-color);
+    text-align: center;
+    outline: none;
+    font-size: 3rem;
+    background-color: var(--otp-input);
+    border-bottom: 0.29rem solid;
+
+    transition: ease-in-out 0.3s;
+    color: black;
+}
+
+.otp-input-fields input::-webkit-outer-spin-button,
+.otp-input-fields input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.otp-input-fields input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+.otp-input-fields input:focus {
+    border-width: 2px;
+    border-color: var(--black-color);
+    font-size: 20px;
+}
+
+.result {
+    max-width: 500px;
+    margin: auto;
+
+    text-align: center;
+}
+
+.otp_again {
+    display: none;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: #533ad1;
+    transition: 0.35s ease-in-out;
+}
+
+.otp_again:hover {
+    border-radius: 0.5rem;
+    background: #c2c2c2;
+}
+
+.result p {
+    font-size: 24px;
+    font-family: 'Antonio', sans-serif;
+    opacity: 1;
+    transition: color 0.5s ease;
+}
+
+.result p._ok {
+    color: #533ad1;
+}
+
+.result p._notok {
+    color: red;
+    border-radius: 3px;
+}
+
+.button-35 {
+    width: 200px;
+    height: 55px;
+}
+
+.content {
+    width: 100%;
+    margin: 3% auto;
+    border-radius: 0.7rem;
+}
+
+.title h3 {
+    padding: 4rem 4rem 2rem 4rem;
+}
+
+.otp-form {
+    position: absolute;
+    background-color: var(--white-color);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    border-radius: 0.8rem;
+    width: 550px;
+}
+
+#page-button {
+    margin: 0rem 0 4rem 0;
+    border: none;
+    background-color: transparent;
+    font-size: 2.5rem;
+    transition: 0.35s ease-in-out;
+    padding: 1rem;
+    color: #533ad1;
+    cursor: pointer;
+}
+
+#page-button:hover {
+    border-radius: 0.5rem;
+    background: #c2c2c2;
+}
+
+.no_sv {
+    font-size: 30px;
+    padding: 30px;
+    text-align: center;
+}
+
+.result_top {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.times {
+    padding-left: 23px;
+    font-size: 15px;
+    color: #ec5b5b;
+    display: flex;
+    align-items: center;
+}
+
+.disabled-link-otp-again {
+    pointer-events: none;
+    border-radius: 0.5rem;
+    background: #c2c2c2;
+}

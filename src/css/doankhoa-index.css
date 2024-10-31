@@ -1,0 +1,77 @@
+html {
+    font-size: 62.5%;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+}
+
+body {
+    background-color: var(--html-color);
+}
+
+/* css tra cứu */
+.manager {
+    margin-top: 2rem;
+    max-width: 90rem;
+    background-color: var(--white-color);
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.8rem;
+}
+
+.content {
+    padding: 1rem;
+}
+
+.content h2,
+.content h2 {
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+.content p {
+    display: inline-block;
+    font-size: 1.8rem;
+}
+
+.content_top .group_btn {
+    text-align: center;
+}
+
+a:any-link {
+    text-decoration: none;
+}
+
+.button {
+    padding: 1rem;
+    background-color: white;
+}
+
+.button .button-1 {
+    margin-top: 2rem;
+    padding: 0.5rem;
+}
+
+.nien-khoa {
+    margin-left: 2rem;
+}
+
+/* sub-box */
+
+@media screen and (max-width: 600px) {
+    .group_btn {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+    .group_btn a {
+        width: 47%;
+    }
+    .group_btn button {
+        width: 100%;
+    }
+}

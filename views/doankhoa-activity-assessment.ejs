@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/src/css/doankhoa-activeregistration.css" />
+  <title>Đánh Giá Hoạt Động Rèn Luyện</title>
+</head>
+
+<body>
+  <div class="main">
+    <%- include(header) %>
+      <%- include(thongbao) %>
+        <%- include(menu) %>
+          <div class="container">
+            <div class="content">
+              <div class="activity-board">
+                <h2>
+                  <%=curr_act.name.toUpperCase()%>
+                </h2>
+                <section class="activity_body">
+                  <div class="activity_body_details">
+                    <!-- Format Date() variable into Viet Nam reading struture -->
+                    <% const hours=curr_act.start_time.getHours(); %>
+                      <% const minutes=curr_act.start_time.getMinutes(); %>
+                        <% const day=curr_act.start_time.getDate(); %>
+                          <% const month=curr_act.start_time.getMonth() + 1; %>
+                            <% const year=curr_act.start_time.getFullYear(); %>
+                              <% const formattedTime=`${hours.toString().padStart(2, '0'
+                                )}:${minutes.toString().padStart(2, '0' )}`; %>
+                                <% const formattedDate=`${formattedTime} Ngày ${day} tháng ${month} năm ${year}`; %>
+                                  <!-- ----------------------------------------------------- -->
+                                  <p>
+                                    Cấp độ: 
+                                    <span><%=curr_act.level%></span>
+                                  </p>
+                                  <p>
+                                    Thời gian diễn ra: 
+                                    <span><%=formattedDate%></span>
+                                  </p>
+                                  <p>
+                                    Chi tiết: 
+                                    <span><%=curr_act.content%></span>
+                                  </p>
+                                  
+                    <!-- End activity -->
+                    <div class="status_container">
+                      <label for="">Trạng Thái:</label>
+            
+                      <div class="selectbox" style="padding-bottom: 0.3rem;">
+                        <% if (curr_act.end) { %>
+                        <label class="close_now" for="">Đã kết thúc</label>
+                          <div class="checkbox-wrapper-4">
+                            <input type="checkbox" id="morning1" class="inp-cbx status_update" value="0" checked/>
+                            <label for="morning1" class="cbx"><span> <svg height="10px" width="12px"></svg></span>
+                            </label>
+                          </div>
+                          <% } else { %>
+                            <label class="close_now" for="">Đang diễn ra</label>
+                          <div class="checkbox-wrapper-4">
+                            <input type="checkbox" id="morning1" class="inp-cbx status_update" value="1"/>
+                            <label for="morning1" class="cbx"><span> <svg height="10px" width="12px"></svg></span>
+                            </label>
+                          </div>
+                            <% } %>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </section>
+              </div>
+
+              <div class="activity-board">
+                <h2>DANH SÁCH SINH VIÊN ĐÃ ĐĂNG KÝ</h2>
+                <%if (curr_act.student_list){%>
+                  <div class="hk_nk">
+                    <button class="button-35 " id="save-change">Lưu cập nhật</button>
+                  <button class="button-35 " id="delete-student">Xoá sinh viên</button>
+                  </div>
+
+                 <div class="container__table">
+                  <table class="table" id="school_tb">
+                    <thead>
+                      <tr>
+                        <th style="width: 1%" rowspan="2">
+                          <div class="checkbox-wrapper-4">
+                            <input type="checkbox" id="row__0" class="inp-cbx all-cbx" />
+                            <label for="row__0" class="cbx"><span> <svg height="10px" width="12px"></svg></span>
+                            </label>
+                          </div>
+                        </th>
+                        <th style="width: 2%" rowspan="2">STT</th>
+                        <th style="width: 2%" rowspan="2">MSSV</th>
+                        <th style="width: 40%" rowspan="2">Họ Và Tên</th>
+                        <th style="width: 10%" rowspan="2">Lớp</th>
+                        <th style="width: 10%" rowspan="2">Hình ảnh</th>
+                        <th style="width: 10%" colspan="2">Điểm danh</th>
+                        <th style="width: 10%" colspan="2">Khen thưởng</th>
+                      </tr>
+                      <tr>
+                        <th style="width: 10%" >
+                          <div class="checkbox-wrapper-4">
+                            <% if (all_true) {%>
+                              <input type="checkbox" id="row__1" class="inp-cbx all-save-cbx" checked/>
+                            <% } else { %>
+                              <input type="checkbox" id="row__1" class="inp-cbx all-save-cbx" />
+                            <% } %>
+                            <label for="row__1" class="cbx"><span> <svg height="10px" width="12px"></svg></span>
+                            </label>
+                          </div>
+                        </th>
+                        <th style="width: 10%">
+                          <button class="reset_btn reset_approval">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                          </button>
+                        </th>
+
+                        <th style="width: 10%" >
+                          <div class="checkbox-wrapper-4">
+                            <% if (bonus_true) {%>
+                              <input type="checkbox" id="row__2" class="inp-cbx all-bonus-cbx" checked/>
+                            <% } else { %>
+                              <input type="checkbox" id="row__2" class="inp-cbx all-bonus-cbx" />
+                            <% } %>
+                            <label for="row__2" class="cbx"><span> <svg height="10px" width="12px"></svg></span>
+                            </label>
+                          </div>
+                        </th>
+                        <th style="width: 10%">
+                          <button class="reset_btn reset_bonus">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                          </button>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <% for (let i=0; i < students_data.length; i++) {%>
+                          <tr class="atv_box">
+                            <td>
+                              <div class="checkbox-wrapper-4">
+                                <input type="checkbox" id="row__0__<%= i %>" class="inp-cbx delete-cbx" value="<%=students_data[i]._id%>" />
+                                <label for="row__0__<%= i %>" class="cbx"><span> <svg height="10px" width="12px"></svg></span>
+                                </label>
+                              </div>
+                            </td>
+                            <td><%= i+1 %></td>
+                              <%if(students_data[i]._id!=='none'){%>
+                                    <td class="mssv">
+                                      <%=students_data[i]._id%>
+                                    </td>
+                                    <td class="a_name">
+                                      <%= students_data[i].displayName %>
+                                    </td>
+                                    <td class="class_student">
+                                      <%= students_data[i].class[0] %>
+                                    </td>
+                                    <td class="show_img_btn">
+                                      <a href="">Xem</a>
+                                    </td>
+                                    <td colspan="2">
+                                      <div class="checkbox-wrapper-4">
+                                        <% if (curr_act.student_list[students_data[i]._id] > 0) { %>
+                                          <input type="checkbox" id="row__1__<%= i %>" class="inp-cbx approval-cbx" value="<%=students_data[i]._id%>" checked/>
+                                        <% } else { %>
+                                          <input type="checkbox" id="row__1__<%= i %>" class="inp-cbx approval-cbx" value="<%=students_data[i]._id%>" />
+                                        <% } %>
+                                        <label for="row__1__<%= i %>" class="cbx"><span> <svg height="10px" width="12px"></svg> </span>
+                                        </label>
+                                      </div>
+                                    </td>
+
+                                    <td colspan="2">
+                                      <div class="checkbox-wrapper-4">
+                                        <% if (curr_act.student_list[students_data[i]._id] > 1) { %>
+                                          <input type="checkbox" id="row__2__<%= i %>" class="inp-cbx bonus-cbx" value="<%=students_data[i]._id%>" checked/>
+                                        <% } else { %>
+                                          <input type="checkbox" id="row__2__<%= i %>" class="inp-cbx bonus-cbx" value="<%=students_data[i]._id%>" />
+                                        <% } %>
+                                        <label for="row__2__<%= i %>" class="cbx"><span> <svg height="10px" width="12px"></svg> </span>
+                                        </label>
+                                      </div>
+                                    </td>
+                                  </tr>
+                              <%}else{%>
+                                  <td class="mssv">
+                                    <%=students_data[i]._id%>
+                                  </td>
+                                  <td class="a_name">
+                                    không có sinh viên này 
+                                  </td>
+                                  <td class="class_student">
+                                    không có sinh viên này 
+                                  </td>
+                                  <td class="show_img_btn">
+                                  </td>
+                                  <td colspan="2">
+                                    <div class="checkbox-wrapper-4">
+                                      x
+                                    </div>
+                                  </td>
+
+                                  <td colspan="2">
+                                    <div class="checkbox-wrapper-4">
+                                      x
+                                    </div>
+                                  </td>
+                                </tr>
+                              <%}%>
+                        <%}%>
+                    </tbody>
+                  </table>
+                 </div>
+                  <%} else {%>
+                    <h1>Không có học sinh nào!</h1>
+                  <%}%>
+              </div>
+              <!--ghi danh -->
+            </div>
+          </div>
+          <%- include(footer) %>
+</body>
+<div class="model_show">
+  <div class="main_img content_top">
+    <h2>HÌNH ẢNH LIÊN QUAN</h2>
+    <div class="main_img_list">
+      
+      <div class="main_img_item">
+        
+        Đang tải hình ảnh...
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+<script>
+  const defaultApproval = <%-JSON.stringify(curr_act.student_list) %>;
+  const idActiv = "<%=idact%>";
+  const curryear = "<%=curr_act.year%>";
+</script>
+<script src="/src/JS/doankhoa-activity-assessment.js"></script>
+
+</html>
