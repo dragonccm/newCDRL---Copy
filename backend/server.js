@@ -29,7 +29,7 @@ databaseLib
         const certificate = fs.readFileSync(path.join('.certificate', 'localhost.crt'), 'utf8');
         const credentials = { key: privateKey, cert: certificate };
         // ----------------------------------------------------------------
-        const port = process.env.PORT;
+        const port = process.env.PORT || 4000;
 
         const secretKey = '5gB#2L1!8*1!0)$7vF@9';
         const authenticationKey = Buffer.from(secretKey.padEnd(32, '0'), 'utf8').toString('hex');
