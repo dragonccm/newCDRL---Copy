@@ -1,7 +1,6 @@
 {
     "scripts": {
-        "start": "node backend/server.js ",
-        "dev": "nodemon backend/server.js "
+        "start": "node backend/server.js "
     },
     "dependencies": {
         "archiver": "^6.0.1",
