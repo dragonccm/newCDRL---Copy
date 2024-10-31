@@ -3,6 +3,7 @@ const router = express.Router();
 const { getNameGlobal } = require('../lib/mogodb_lib');
 const name_global_databases = getNameGlobal();
 const publicKey = process.env.PUBLIC_KEY;
+require('dotenv').config();
 function createLoginRouter(client) {
     // login route
     router.get('/', async (req, res) => {

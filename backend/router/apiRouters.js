@@ -11,6 +11,7 @@ const forge = require('node-forge');
 const { ObjectId } = require('mongodb');
 const { getNameGlobal } = require('../lib/mogodb_lib');
 const name_global_databases = getNameGlobal();
+require('dotenv').config();
 const {
     comparePassword,
     hashPassword,

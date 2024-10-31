@@ -19,7 +19,7 @@ const createStudentRouter = require('./router/studentRouter');
 
 const MongoStore = require('connect-mongo');
 const WebSocket = require('ws');
-
+require('dotenv').config();
 // ----------------------------------------------------------------
 databaseLib
     .connect()

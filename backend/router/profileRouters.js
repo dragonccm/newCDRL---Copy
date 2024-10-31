@@ -4,7 +4,7 @@ const { checkIfUserLoginRoute } = require('../lib/function_lib');
 const { getNameGlobal } = require('../lib/mogodb_lib');
 const name_global_databases = getNameGlobal();
 const publicKey = process.env.PUBLIC_KEY;
-
+require('dotenv').config();
 function createProfileRouter(client) {
     // thong tin ca nhan route
     router.get('/', checkIfUserLoginRoute, async (req, res) => {

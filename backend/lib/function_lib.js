@@ -10,7 +10,7 @@ const archiver = require('archiver');
 const { v4: uuidv4 } = require('uuid');
 const PdfPrinter = require('pdfmake');
 const util = require('util');
-
+require('dotenv').config();
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 // ------------------------------------------------------------------------------------------------

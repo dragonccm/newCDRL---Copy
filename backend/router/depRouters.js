@@ -4,7 +4,7 @@ const server = require('../lib/csdl_google_lib');
 const { checkIfUserLoginRoute, sortStudentName } = require('../lib/function_lib');
 const { getNameGlobal } = require('../lib/mogodb_lib');
 const { ObjectId } = require('mongodb');
-
+require('dotenv').config();
 const name_global_databases = getNameGlobal();
 // doan khoa route
 function createDepRouter(client) {

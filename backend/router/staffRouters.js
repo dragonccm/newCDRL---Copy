@@ -4,6 +4,7 @@ const server = require('../lib/csdl_google_lib');
 const { checkIfUserLoginRoute, sortStudentName } = require('../lib/function_lib');
 const { getNameGlobal } = require('../lib/mogodb_lib');
 const name_global_databases = getNameGlobal();
+require('dotenv').config();
 function createStaffRouter(client) {
     // ban can su nhap diem route
     router.get('/nhapdiemdanhgia', checkIfUserLoginRoute, async (req, res) => {

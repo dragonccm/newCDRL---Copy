@@ -3,7 +3,7 @@ const fs = require('fs');
 const { google } = require('googleapis');
 const NodePersist = require('node-persist');
 const path = require('path');
-
+require('dotenv').config();
 // Create a new Google Drive instance
 const drive = google.drive('v3');
 

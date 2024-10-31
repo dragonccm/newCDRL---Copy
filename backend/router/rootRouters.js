@@ -4,7 +4,7 @@ const { checkIfUserLoginRoute } = require('../lib/function_lib');
 const { getNameGlobal } = require('../lib/mogodb_lib');
 const name_global_databases = getNameGlobal();
 const path = require('path');
-
+require('dotenv').config();
 function createRootRouter(client, parentDirectory) {
     // index route
     router.get('/', checkIfUserLoginRoute, async (req, res) => {
