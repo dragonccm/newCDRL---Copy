@@ -60,8 +60,8 @@ databaseLib
                     },
                 }),
                 cookie: {
-                    secure: true,
-                    httpOnly: true,
+                    secure: "auto",
+                    httpOnly: false,
                     sameSite: 'strict',
                 },
                 rolling: true,
